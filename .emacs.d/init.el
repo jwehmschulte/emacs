@@ -9,10 +9,33 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(defvar my-term-shell "/bin/bash")
+(defadvice ansi-term (before force-bash)
+  (interactive (list my-term-shell)))
+(ad-activate 'ansi-term)
+
+(global-set-key (kbd "<s-return>") 'ansi-term)
+
+(setq ring-bell-function 'ignore)
+
+(when window-system (global-hl-line-mode t))
+
+(when window-system (global-prettify-symbols-mode t))
+
 (use-package which-key
   :ensure t
   :init
   (which-key-mode))
+
+(use-package beacon
+  :ensure t
+  :init
+  (beacon-mode 1))
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
