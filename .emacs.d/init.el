@@ -9,15 +9,14 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;;;;;;;;;;;;;
+
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(defvar my-term-shell "/bin/bash")
-(defadvice ansi-term (before force-bash)
-  (interactive (list my-term-shell)))
-(ad-activate 'ansi-term)
+(org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
 
 (global-set-key (kbd "<s-return>") 'ansi-term)
 
@@ -42,6 +41,8 @@
 (scroll-bar-mode -1)
 
 (setq inhibit-startup-message t)
+
+;;;;;;;;;;;;
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
