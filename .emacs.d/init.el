@@ -11,9 +11,6 @@
 
 ;;;;;;;;;;;;;
 
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
