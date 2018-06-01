@@ -22,3 +22,7 @@
   (setq make-backup-files nil)
   (setq auto-save-default nil)
 #+END_SRC
+** Y or N
+#+BEGIN_SRC emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
